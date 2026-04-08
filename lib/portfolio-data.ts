@@ -3,14 +3,13 @@ import type { TechIconKey } from '@/lib/tech-icons';
 export const profile = {
   name: 'Henrique Zanella Flores da Silva',
   initials: 'HZ',
-  role: 'Desenvolvedor Frontend',
+  role: 'Desenvolvedor de Software | Especialista em Front-end & Sistemas ERP/CRM',
   headline:
     'Desenvolvedor frontend focado em interfaces claras e produtos escaláveis.',
-  summary:
-    'Graduado em Análise e Desenvolvimento de Sistemas com experiência prática em ERP e CRM. Trabalho com React, Next.js, TypeScript e Tailwind CSS, criando interfaces consistentes, performáticas e acessíveis.',
   about: [
-    'Tenho experiência em projetos corporativos e na evolução de sistemas críticos, sempre com foco em usabilidade, qualidade e manutenção de código.',
-    'Busco atuar em times que valorizam boas práticas, colaboração e entrega contínua de valor ao usuário final.',
+    'Sou um desenvolvedor de software com foco em criar interfaces modernas, intuitivas e de alto desempenho. Minha experiência central envolve o ecossistema JavaScript, com domínio em React, Next.js, TypeScript e Tailwind CSS.',
+    'Tenho um histórico sólido na transição de suporte técnico para o desenvolvimento, o que me proporcionou uma visão única sobre a experiência do usuário final e a resolução de problemas críticos em sistemas de gestão (ERP e CRM).',
+    'Além da parte técnica, possuo sólida base acadêmica em Engenharia de Software e Gestão de Projetos, com conhecimento em modelagem UML, diretrizes do PMBOK e normas de qualidade como a ISO9001. Sou movido por desafios que unam tecnologia de ponta à eficiência operacional.',
   ],
   availability: 'Disponível para oportunidades CLT ou PJ.',
 };
