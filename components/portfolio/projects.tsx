@@ -1,7 +1,8 @@
-import { Container } from "@/components/ui/container";
-import { Tag } from "@/components/ui/tag";
-import { SectionHeading } from "@/components/portfolio/section-heading";
-import { projects } from "@/lib/portfolio-data";
+import Image from 'next/image';
+import { Container } from '@/components/ui/container';
+import { Tag } from '@/components/ui/tag';
+import { SectionHeading } from '@/components/portfolio/section-heading';
+import { projects } from '@/lib/portfolio-data';
 
 export function Projects() {
   return (
@@ -17,21 +18,20 @@ export function Projects() {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article
               key={project.title}
               className="group flex h-full flex-col justify-between rounded-3xl border surface-card hover-border p-6 transition hover:-translate-y-1"
             >
               <div>
-                <div
-                  className={`h-32 w-full rounded-2xl ${
-                    index % 3 === 0
-                      ? "bg-project-1"
-                      : index % 3 === 1
-                      ? "bg-project-2"
-                      : "bg-project-3"
-                  }`}
-                />
+                <div className="relative h-40 overflow-hidden rounded-2xl border surface-card">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
                 <h3 className="font-heading mt-5 text-xl font-semibold text-tone">
                   {project.title}
                 </h3>

@@ -24,7 +24,7 @@ export const contact = {
 };
 
 export const metrics = [
-  { label: 'Sistemas ERP e CRM', value: '2' },
+  { label: 'Sistemas trabalhados', value: '2' },
   { label: 'Anos de experiência', value: '3+' },
   { label: 'Times liderados', value: '2' },
 ];
@@ -111,25 +111,35 @@ export const techCarousel = [
 
 export const projects = [
   {
-    title: 'Windel ERP',
+    title: 'Projeto pessoal - LifeOs',
     description:
-      'Atuação no desenvolvimento inicial do ERP, construindo fluxos essenciais e interfaces voltadas à produtividade.',
-    stack: ['Next.js', 'TypeScript', 'REST'],
-    link: '#',
+      'Dashboard para controle de hábitos, finanças e tarefas, com foco em usabilidade e design.',
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'Shadcn',
+      'Radix UI',
+      'SQL',
+      'Lucide Icons',
+    ],
+    link: 'https://life-os-gray-iota.vercel.app/login',
+    image: '/lifeOs-image.png',
   },
   {
-    title: 'Windel CRM',
+    title: 'Revitalize',
     description:
-      'Evolução do CRM com integrações, otimização de performance e foco em experiência do usuário.',
-    stack: ['React', 'Tailwind', 'TanStack Query'],
-    link: '#',
+      'Projeto de finalização de graduação (TCC) para controle de treinos e alimentação, focado em saúde e bem-estar.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://projetorevitalize.github.io/Projeto-Empreendedor-II/',
+    image: '/revitalize-image.png',
   },
   {
-    title: 'EFD Digital',
+    title: 'EcoRecicla',
     description:
       'Validação e apoio à Escrituração Fiscal Digital, com foco em conformidade e qualidade dos dados.',
-    stack: ['SQL', 'Postman', 'Processos'],
-    link: '#',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Lucide Icons'],
+    link: 'https://ecoprojeto.vercel.app/',
+    image: '/ecorecicla-image.png',
   },
 ];
 

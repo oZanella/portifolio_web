@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -151,28 +151,28 @@
   --tone-accent-contrast: 210 20% 98%;
   --tone-warm: 24 94% 58%;
   --tone-warm-contrast: 210 20% 98%;
-  --tone-neutral: 215 18% 72%;
+  --tone-neutral: 215 10% 72%;
   --tone-neutral-contrast: 210 20% 10%;
-  --tone-surface: 225 20% 12%;
-  --tone-surface-strong: 225 20% 16%;
-  --tone-border: 225 18% 22%;
-  --tone-muted: 220 18% 52%;
+  --tone-surface: 240 6% 7%;
+  --tone-surface-strong: 240 6% 10%;
+  --tone-border: 240 5% 15%;
+  --tone-muted: 220 10% 45%;
   --tone-glow-primary: 152 86% 55%;
   --tone-glow-accent: 248 88% 67%;
   --tone-glow-warm: 24 94% 58%;
   --tone-text-primary: 0 0% 100%;
-  --tone-text-secondary: 220 10% 78%;
-  --tone-text-subtle: 220 8% 62%;
-  --tech-react: 220 10% 72%;
-  --tech-next: 220 10% 72%;
-  --tech-typescript: 220 10% 72%;
-  --tech-tailwind: 220 10% 72%;
-  --tech-radix: 220 10% 72%;
-  --tech-tanstack: 220 10% 72%;
-  --tech-graphql: 220 10% 72%;
-  --tech-postman: 220 10% 72%;
-  --tech-sql: 220 10% 72%;
-  --tech-git: 220 10% 72%;
+  --tone-text-secondary: 220 8% 75%;
+  --tone-text-subtle: 220 6% 55%;
+  --tech-react: 220 5% 65%;
+  --tech-next: 220 5% 65%;
+  --tech-typescript: 220 5% 65%;
+  --tech-tailwind: 220 5% 65%;
+  --tech-radix: 220 5% 65%;
+  --tech-tanstack: 220 5% 65%;
+  --tech-graphql: 220 5% 65%;
+  --tech-postman: 220 5% 65%;
+  --tech-sql: 220 5% 65%;
+  --tech-git: 220 5% 65%;
 }
 
 @layer base {
@@ -232,18 +232,21 @@
   }
 
   .surface-card {
-    background: hsl(var(--tone-surface) / 0.8);
-    border-color: hsl(var(--tone-border) / 0.8);
+    background: hsl(var(--tone-surface) / 0.65);
+    border-color: hsl(var(--tone-border) / 0.85);
+    backdrop-filter: blur(12px);
   }
 
   .surface-strong {
-    background: hsl(var(--tone-surface-strong) / 0.9);
+    background: hsl(var(--tone-surface-strong) / 0.75);
     border-color: hsl(var(--tone-border));
+    backdrop-filter: blur(16px);
   }
 
   .surface-muted {
-    background: hsl(var(--tone-surface) / 0.55);
-    border-color: hsl(var(--tone-border) / 0.6);
+    background: hsl(var(--tone-surface) / 0.4);
+    border-color: hsl(var(--tone-border) / 0.5);
+    backdrop-filter: blur(8px);
   }
 
   .text-tone-muted {
@@ -320,16 +323,16 @@
   }
 
   .marquee {
-    animation: marquee 80s linear infinite;
+    animation: marquee 30s linear infinite;
     will-change: transform;
   }
 
   .marquee-slow {
-    animation-duration: 80s;
+    animation-duration: 40s;
   }
 
   .marquee-fast {
-    animation-duration: 80s;
+    animation-duration: 20s;
   }
 
   .hover-border {

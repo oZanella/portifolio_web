@@ -1,5 +1,4 @@
 import { About } from '@/components/portfolio/about';
-import { Contact } from '@/components/portfolio/contact';
 import { Hero } from '@/components/portfolio/hero';
 import { PageBackground } from '@/components/portfolio/page-background';
 import { Projects } from '@/components/portfolio/projects';
@@ -21,7 +20,6 @@ export default function Home() {
         <Education />
         <Skills />
         <Projects />
-        <Contact />
         <SiteFooter />
       </div>
     </main>
