@@ -12,7 +12,7 @@ export function Projects() {
           <SectionHeading
             eyebrow="projetos"
             title="Alguns projetos recentes"
-            description="Ajuste os links e descrições para os seus projetos reais."
+            description=""
             align="left"
           />
         </div>
