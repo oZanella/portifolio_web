@@ -11,7 +11,7 @@ export const profile = {
     'Tenho um histórico sólido na transição de suporte técnico para o desenvolvimento, o que me proporcionou uma visão única sobre a experiência do usuário final e a resolução de problemas críticos em sistemas de gestão (ERP e CRM).',
     'Além da parte técnica, possuo sólida base acadêmica em Engenharia de Software e Gestão de Projetos, com conhecimento em modelagem UML, diretrizes do PMBOK e normas de qualidade como a ISO9001. Sou movido por desafios que unam tecnologia de ponta à eficiência operacional.',
   ],
-  availability: 'Disponível para oportunidades CLT ou PJ.',
+  availability: 'Disponível para oportunidades CLT',
 };
 
 export const contact = {
