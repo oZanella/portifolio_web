@@ -15,9 +15,6 @@ export function Hero() {
             <h1 className="font-heading text-4xl font-semibold leading-tight text-tone md:text-6xl">
               {profile.headline}
             </h1>
-            <p className="mx-auto max-w-xl text-base text-tone-secondary md:text-lg">
-              {profile.summary}
-            </p>
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
