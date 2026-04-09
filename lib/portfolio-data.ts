@@ -3,7 +3,7 @@ import type { TechIconKey } from '@/lib/tech-icons';
 export const profile = {
   name: 'Henrique Zanella Flores da Silva',
   initials: 'HZ',
-  role: 'Desenvolvedor de Software | Especialista em Front-end & Sistemas ERP/CRM',
+  role: 'Desenvolvedor de Software | Especialista em Front-end',
   headline:
     'Desenvolvedor frontend focado em interfaces claras e produtos escaláveis.',
   about: [
