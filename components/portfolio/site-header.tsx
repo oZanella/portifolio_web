@@ -16,8 +16,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-tone/10 surface-card">
       <Container className="flex items-center justify-between py-3 md:py-3 gap-4">
-        <div className="flex items-center gap-3">
-          <div className="relative h-10 w-10 md:h-11 md:w-11 overflow-hidden rounded-xl md:rounded-2xl border border-tone surface-card shrink-0">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="relative h-12 w-12 md:h-14 md:w-14 overflow-hidden rounded-2xl border-2 border-tone-primary/30 surface-card shrink-0 shadow-lg shadow-tone-primary/5">
             <Image
               src="/eu2025.png"
               alt={profile.name}
@@ -25,9 +25,14 @@ export function SiteHeader() {
               className="object-cover"
             />
           </div>
-          <p className="font-heading text-sm md:text-base font-semibold text-tone truncate max-w-30 md:max-w-none">
-            {profile.name}
-          </p>
+          <div className="flex flex-col">
+            <p className="font-heading text-sm md:text-lg font-bold text-tone leading-tight truncate max-w-40 md:max-w-none">
+              {profile.name}
+            </p>
+            <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-tone-subtle font-semibold mt-0.5 md:mt-1">
+              Software Engineer
+            </p>
+          </div>
         </div>
 
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-tone-secondary">
