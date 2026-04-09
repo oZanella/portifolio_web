@@ -48,15 +48,38 @@ export const mainStack = [
 export const skills = [
   {
     title: 'Frontend',
-    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Radix UI'],
+    items: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Radix UI',
+      'Shadcn/UI',
+      'Zustand / Redux',
+    ],
   },
   {
-    title: 'Dados & APIs',
-    items: ['REST APIs', 'GraphQL', 'TanStack Query', 'Postman'],
+    title: 'Backend & Dados',
+    items: [
+      'Node.js',
+      'Express',
+      'Prisma ORM',
+      'PostgreSQL / MySQL',
+      'REST APIs',
+      'GraphQL',
+      'TanStack Query',
+    ],
   },
   {
-    title: 'Ferramentas',
-    items: ['Git', 'GitHub', 'SQL / MySQL', 'Testes automatizados'],
+    title: 'Ferramentas & Infra',
+    items: [
+      'Git / GitHub',
+      'Docker',
+      'Vercel / Netlify',
+      'CI/CD (GitHub Actions)',
+      'Postman',
+      'Figma',
+    ],
   },
 ];
 
@@ -101,6 +124,17 @@ export const techCarousel = [
   },
   { label: 'SQL', shorthand: 'SQL / MySQL', icon: 'sql', tone: 'tech-sql' },
   { label: 'Git', shorthand: 'Git', icon: 'git', tone: 'tech-git' },
+  { label: 'Node.js', shorthand: 'Node', icon: 'node', tone: 'tech-node' },
+  { label: 'Docker', shorthand: 'Docker', icon: 'docker', tone: 'tech-docker' },
+  { label: 'Figma', shorthand: 'Figma', icon: 'figma', tone: 'tech-figma' },
+  { label: 'Prisma', shorthand: 'Prisma', icon: 'prisma', tone: 'tech-prisma' },
+  { label: 'Vercel', shorthand: 'Vercel', icon: 'vercel', tone: 'tech-vercel' },
+  {
+    label: 'Postgres',
+    shorthand: 'Postgres',
+    icon: 'postgresql',
+    tone: 'tech-postgresql',
+  },
 ] as const satisfies ReadonlyArray<{
   label: string;
   shorthand: string;

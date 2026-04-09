@@ -9,6 +9,13 @@ import {
   siTailwindcss,
   siTanstack,
   siTypescript,
+  siNodedotjs,
+  siExpress,
+  siDocker,
+  siFigma,
+  siPrisma,
+  siVercel,
+  siPostgresql,
 } from 'simple-icons/icons';
 
 export type TechIconKey =
@@ -21,7 +28,14 @@ export type TechIconKey =
   | 'graphql'
   | 'postman'
   | 'sql'
-  | 'git';
+  | 'git'
+  | 'node'
+  | 'express'
+  | 'docker'
+  | 'figma'
+  | 'prisma'
+  | 'vercel'
+  | 'postgresql';
 
 export const techIconMap = {
   react: siReact,
@@ -34,4 +48,11 @@ export const techIconMap = {
   postman: siPostman,
   sql: siMysql,
   git: siGit,
+  node: siNodedotjs,
+  express: siExpress,
+  docker: siDocker,
+  figma: siFigma,
+  prisma: siPrisma,
+  vercel: siVercel,
+  postgresql: siPostgresql,
 } as const;

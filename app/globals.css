@@ -175,6 +175,46 @@
   --tech-git: 220 5% 65%;
 }
 
+.theme-blue {
+  --tone-primary: 217 91% 60%;
+  --tone-glow-primary: 217 91% 60%;
+}
+
+.theme-purple {
+  --tone-primary: 270 91% 65%;
+  --tone-glow-primary: 270 91% 65%;
+}
+
+.theme-amber {
+  --tone-primary: 38 92% 50%;
+  --tone-glow-primary: 38 92% 50%;
+}
+
+.layout-compact {
+  font-size: 0.9375rem;
+
+  .py-20,
+  .pt-20 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .pt-24,
+  .py-24 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .md\:py-32 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

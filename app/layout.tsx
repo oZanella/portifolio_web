@@ -1,5 +1,10 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Mono, Merriweather, Plus_Jakarta_Sans } from 'next/font/google';
+import {
+  IBM_Plex_Mono,
+  Merriweather,
+  Plus_Jakarta_Sans,
+} from 'next/font/google';
+import { SettingsProvider } from '@/components/portfolio/settings-provider';
 import './globals.css';
 
 const display = Merriweather({
@@ -37,7 +42,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable} h-full scroll-smooth antialiased dark`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+        <SettingsProvider>{children}</SettingsProvider>
       </body>
     </html>
   );
