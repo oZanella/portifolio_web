@@ -56,7 +56,7 @@ export function SiteHeader() {
             className="px-4 h-9 md:h-10 md:px-6"
             asChild
           >
-            <a href="/Currículo%20Henrique%20Zanella%20Março.pdf" download>
+            <a href="/CurriculoHenrique2026.pdf" download>
               <span className="md:hidden">CV</span>
               <span className="hidden md:inline">Baixar CV</span>
             </a>
