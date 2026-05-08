@@ -5,7 +5,7 @@ export const profile = {
   initials: 'HZ',
   role: 'Desenvolvedor de Software | Especialista em Front-end',
   headline:
-    'Desenvolvedor frontend focado em interfaces claras e produtos escaláveis.',
+    'Desenvolvedor Fullstack focado em interfaces claras e produtos escaláveis.',
   about: [
     'Sou um desenvolvedor de software com foco em criar interfaces modernas, intuitivas e de alto desempenho. Minha experiência central envolve o ecossistema JavaScript, com domínio em React, Next.js, TypeScript e Tailwind CSS.',
     'Tenho um histórico sólido na transição de suporte técnico para o desenvolvimento, o que me proporcionou uma visão única sobre a experiência do usuário final e a resolução de problemas críticos em sistemas de gestão (ERP e CRM).',
@@ -179,7 +179,7 @@ export const projects = [
 export const experience = [
   {
     company: 'Windel Sistemas',
-    role: 'Desenvolvedor Frontend',
+    role: 'Desenvolvedor Fullstack',
     period: '2025 - Atual',
     bullets: [
       'Desenvolvimento de interfaces responsivas utilizando Next.js, React e TypeScript.',
