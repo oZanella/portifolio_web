@@ -74,11 +74,10 @@ export const skills = [
     title: 'Ferramentas & Infra',
     items: [
       'Git / GitHub',
-      'Docker',
-      'Vercel / Netlify',
-      'CI/CD (GitHub Actions)',
       'Postman',
+      'Docker',
       'Figma',
+      'CI/CD (GitHub Actizons)',
     ],
   },
 ];

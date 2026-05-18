@@ -95,12 +95,6 @@ export function SettingsPanel() {
                 </div>
               </section>
             </div>
-
-            <div className="mt-8 pt-5 border-t border-white/5">
-              <p className="text-[10px] text-center text-white/20 font-medium">
-                Configurações salvas automaticamente ao selecionar uma cor
-              </p>
-            </div>
           </div>
         </>
       )}
