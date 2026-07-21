@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Tag } from '@/components/ui/tag';
 import { SectionHeading } from '@/components/portfolio/section-heading';
@@ -6,56 +7,57 @@ import { projects } from '@/lib/portfolio-data';
 
 export function Projects() {
   return (
-    <section id="projetos" className="pt-24">
+    <section id="projetos" className="scroll-mt-24 pt-24">
       <Container>
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            eyebrow="projetos"
-            title="Alguns projetos recentes"
-            description=""
-            align="left"
-          />
-        </div>
+        <SectionHeading
+          index="05"
+          eyebrow="projetos"
+          title="Alguns projetos recentes"
+        />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="reveal mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <article
+            <a
               key={project.title}
-              className="group flex h-full flex-col justify-between rounded-3xl border surface-card hover-border p-6 transition hover:-translate-y-1"
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border surface-card"
             >
-              <div>
-                <div className="relative h-40 overflow-hidden rounded-2xl border surface-card">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="font-heading mt-5 text-xl font-semibold text-tone">
+              <div className="relative aspect-16/10 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-[hsl(var(--tone-surface))] via-transparent to-transparent opacity-70" />
+                <span className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border surface-strong text-tone opacity-0 transition-all duration-300 group-hover:opacity-100">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="font-heading text-xl font-semibold text-tone">
                   {project.title}
                 </h3>
-                <p className="mt-3 text-sm text-tone-secondary">
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-tone-secondary">
                   {project.description}
                 </p>
-              </div>
-              <div className="mt-6">
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-2">
                   {project.stack.map((item) => (
                     <Tag key={item} tone="neutral" variant="outline">
                       {item}
                     </Tag>
                   ))}
                 </div>
-                <a
-                  className="mt-6 inline-flex items-center gap-2 text-sm tone-base tone-primary transition group-hover:opacity-90"
-                  href={project.link}
-                >
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--tone-primary))]">
                   Ver projeto
-                  <span aria-hidden>→</span>
-                </a>
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </Container>

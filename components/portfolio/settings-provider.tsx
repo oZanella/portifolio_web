@@ -2,14 +2,13 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'default' | 'blue' | 'purple' | 'amber';
-type Layout = 'default' | 'compact';
+export type Theme = 'default' | 'sky' | 'violet' | 'rose' | 'amber' | 'cyan';
+
+const THEMES: Theme[] = ['default', 'sky', 'violet', 'rose', 'amber', 'cyan'];
 
 interface SettingsContextType {
   theme: Theme;
-  layout: Layout;
   setTheme: (theme: Theme) => void;
-  setLayout: (layout: Layout) => void;
 }
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -18,37 +17,31 @@ const SettingsContext = createContext<SettingsContextType | undefined>(
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('default');
-  const [layout, setLayout] = useState<Layout>('default');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('portfolio-theme') as Theme;
-    const savedLayout = localStorage.getItem('portfolio-layout') as Layout;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (savedTheme) setTheme(savedTheme);
-    if (savedLayout) setLayout(savedLayout);
+    if (savedTheme && THEMES.includes(savedTheme)) setTheme(savedTheme);
     setMounted(true);
   }, []);
 
   useEffect(() => {
     if (!mounted) return;
     localStorage.setItem('portfolio-theme', theme);
-    localStorage.setItem('portfolio-layout', layout);
 
-    // Apply classes to body
     const body = document.body;
     body.classList.forEach((cls) => {
-      if (cls.startsWith('theme-') || cls.startsWith('layout-')) {
+      if (cls.startsWith('theme-')) {
         body.classList.remove(cls);
       }
     });
 
     if (theme !== 'default') body.classList.add(`theme-${theme}`);
-    if (layout !== 'default') body.classList.add(`layout-${layout}`);
-  }, [theme, layout, mounted]);
+  }, [theme, mounted]);
 
   return (
-    <SettingsContext.Provider value={{ theme, layout, setTheme, setLayout }}>
+    <SettingsContext.Provider value={{ theme, setTheme }}>
       {children}
     </SettingsContext.Provider>
   );

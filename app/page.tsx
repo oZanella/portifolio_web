@@ -1,6 +1,7 @@
 import { About } from '@/components/portfolio/about';
 import { Hero } from '@/components/portfolio/hero';
 import { PageBackground } from '@/components/portfolio/page-background';
+import { ScrollProgress } from '@/components/portfolio/scroll-progress';
 import { Projects } from '@/components/portfolio/projects';
 import { SiteFooter } from '@/components/portfolio/site-footer';
 import { SiteHeader } from '@/components/portfolio/site-header';
@@ -10,7 +11,8 @@ import { Education } from '@/components/portfolio/education';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen">
+      <ScrollProgress />
       <PageBackground />
       <div className="relative">
         <SiteHeader />

@@ -4,6 +4,7 @@ import {
   Merriweather,
   Plus_Jakarta_Sans,
 } from 'next/font/google';
+import { SettingsPanel } from '@/components/portfolio/settings-panel';
 import { SettingsProvider } from '@/components/portfolio/settings-provider';
 import './globals.css';
 
@@ -42,7 +43,10 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable} h-full scroll-smooth antialiased dark`}
     >
       <body className="min-h-full flex flex-col">
-        <SettingsProvider>{children}</SettingsProvider>
+        <SettingsProvider>
+          {children}
+          <SettingsPanel />
+        </SettingsProvider>
       </body>
     </html>
   );

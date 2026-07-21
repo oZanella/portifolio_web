@@ -6,25 +6,30 @@ import { skills } from '@/lib/portfolio-data';
 
 export function Skills() {
   return (
-    <section id="habilidades" className="pt-24">
+    <section id="habilidades" className="scroll-mt-24 pt-24">
       <Container>
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            eyebrow="habilidades"
-            title="Tecnologias que uso no dia a dia"
-            description="Selecionei as tecnologias em que tenho mais confiança para entregar produtos modernos, escaláveis e bem cuidados."
-          />
-        </div>
-        <TechMarquee className="mt-10" />
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {skills.map((skill) => (
+        <SectionHeading
+          index="04"
+          eyebrow="habilidades"
+          title="Tecnologias que uso no dia a dia"
+        />
+
+        <TechMarquee className="mt-12" />
+
+        <div className="reveal mt-12 grid gap-6 md:grid-cols-3">
+          {skills.map((skill, i) => (
             <div
               key={skill.title}
-              className="rounded-3xl border surface-card p-6"
+              className="card-lift rounded-3xl border surface-card p-6"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-tone-subtle">
-                {skill.title}
-              </p>
+              <div className="flex items-center gap-3">
+                <span className="section-index text-xs font-medium">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="text-xs uppercase tracking-[0.2em] text-tone-subtle">
+                  {skill.title}
+                </p>
+              </div>
               <div className="mt-5 flex flex-wrap gap-2">
                 {skill.items.map((item) => (
                   <Tag key={item} tone="neutral" variant="soft">

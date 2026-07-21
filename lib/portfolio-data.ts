@@ -77,7 +77,7 @@ export const skills = [
       'Postman',
       'Docker',
       'Figma',
-      'CI/CD (GitHub Actizons)',
+      'CI/CD (GitHub Actions)',
     ],
   },
 ];
