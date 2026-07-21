@@ -195,6 +195,8 @@ export const experience = [
       'Liderança de equipe e organização de processos operacionais e técnicos.',
       'Atendimento ao público e gestão de reclamações, promovendo melhorias contínuas.',
       'Apoio ao desenvolvimento e manutenção de sistemas internos ERP e CRM.',
+      'Responsável pela conferência do SPED Fiscal.',
+      'Autor de relatórios personalizados via SQL.',
     ],
   },
 ];
