@@ -435,7 +435,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: text-pan 6s linear infinite;
+    animation: text-pan 8s ease-in-out infinite alternate;
   }
 
   .orbit-ring {
