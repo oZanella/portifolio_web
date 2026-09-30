@@ -3,7 +3,8 @@ import { techIconMap, type TechIconKey } from '@/lib/tech-icons';
 
 interface TechIconProps {
   name: TechIconKey;
-  label: string;
+  /** Sem label o ícone é decorativo e fica oculto para leitores de tela. */
+  label?: string;
   className?: string;
 }
 
@@ -11,12 +12,12 @@ export function TechIcon({ name, label, className }: TechIconProps) {
   const icon = techIconMap[name];
   return (
     <svg
-      role="img"
-      aria-label={label}
       viewBox="0 0 24 24"
-      className={cn('h-5 w-5', className)}
+      className={cn('size-5 shrink-0', className)}
+      {...(label
+        ? { role: 'img', 'aria-label': label }
+        : { 'aria-hidden': true, focusable: false })}
     >
-      <title>{label}</title>
       <path d={icon.path} fill="currentColor" />
     </svg>
   );

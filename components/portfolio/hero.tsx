@@ -1,126 +1,111 @@
-import { ArrowDown, Download, Mail } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
-import { TechIcon } from '@/components/portfolio/tech-icon';
-import { HeroOrbit } from '@/components/portfolio/hero-orbit';
-import { contact, mainStack, metrics, profile } from '@/lib/portfolio-data';
+import { CopyEmail } from '@/components/portfolio/copy-email';
+import { ProfileCard } from '@/components/portfolio/profile-card';
+import { Accent } from '@/components/portfolio/section';
+import { SectionLink } from '@/components/portfolio/section-link';
+import { metrics, profile } from '@/lib/portfolio-data';
+
+function delay(ms: number) {
+  return { '--delay': `${ms}ms` } as React.CSSProperties;
+}
 
 export function Hero() {
   return (
-    <section className="relative pt-16 md:pt-24">
+    <section
+      id="inicio"
+      tabIndex={-1}
+      aria-labelledby="inicio-titulo"
+      className="relative isolate overflow-hidden pb-8 pt-28 outline-none sm:pt-36 lg:pt-40"
+    >
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="bg-dots absolute inset-0 mask-[radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
+        <div className="brand-glow absolute left-1/2 top-0 h-144 w-[min(64rem,160vw)] -translate-x-1/2 -translate-y-1/2" />
+      </div>
+
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-          {/* Coluna de texto */}
-          <div className="flex flex-col gap-7 lg:col-span-7">
-            <div
-              className="animate-enter flex items-center gap-3"
-              style={{ animationDelay: '0.05s' }}
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="pulse-ring absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--tone-primary))]" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[hsl(var(--tone-primary))]" />
-              </span>
-              <span className="text-xs uppercase tracking-[0.3em] text-tone-secondary">
-                {profile.availability}
-              </span>
-            </div>
+        <p
+          className="animate-enter inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/70 py-1.5 pl-3 pr-3.5 text-xs font-medium text-ink-muted backdrop-blur"
+          style={delay(0)}
+        >
+          <span aria-hidden className="pulse-dot relative size-2 rounded-full bg-success" />
+          {profile.availability}
+        </p>
 
-            <div className="space-y-5">
-              <p
-                className="animate-enter text-sm uppercase tracking-[0.35em] text-tone-muted"
-                style={{ animationDelay: '0.12s' }}
-              >
-                {profile.role}
-              </p>
-              <h1
-                className="animate-enter font-heading text-4xl font-semibold leading-[1.05] sm:text-5xl md:text-6xl"
-                style={{ animationDelay: '0.2s' }}
-              >
-                <span className="text-gradient">{profile.headline}</span>
-              </h1>
-              <p
-                className="animate-enter max-w-xl text-base leading-relaxed text-tone-secondary"
-                style={{ animationDelay: '0.3s' }}
-              >
-                {profile.about[0]}
-              </p>
-            </div>
+        <h1
+          id="inicio-titulo"
+          className="animate-enter text-balance-safe mt-7 max-w-[14ch] text-[clamp(2.4rem,6vw+0.6rem,5.6rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-ink sm:max-w-[16ch] lg:max-w-none"
+          style={delay(80)}
+        >
+          Software que parece <Accent>simples</Accent> porque cada detalhe foi
+          pensado.
+        </h1>
+
+        <div className="mt-10 grid gap-10 lg:mt-14 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
+          <div className="flex min-w-0 flex-col items-start">
+            <p
+              className="animate-enter max-w-xl text-pretty text-base leading-relaxed text-ink-muted sm:text-lg"
+              style={delay(160)}
+            >
+              <strong className="font-medium text-ink">
+                Olá, eu sou o {profile.firstName}.
+              </strong>{' '}
+              {profile.intro}
+            </p>
 
             <div
-              className="animate-enter flex flex-wrap items-center gap-3"
-              style={{ animationDelay: '0.4s' }}
+              className="animate-enter mt-8 flex w-full flex-col gap-3 min-[480px]:w-auto min-[480px]:flex-row"
+              style={delay(240)}
             >
-              <Button tone="primary" variant="solid" size="lg" asChild>
-                <a href="/CurriculoHenrique2026.pdf" download>
-                  <Download className="h-4 w-4" />
-                  Baixar CV
-                </a>
-              </Button>
-              <Button tone="neutral" variant="outline" size="lg" asChild>
-                <a href={`mailto:${contact.email}`}>
-                  <Mail className="h-4 w-4" />
-                  Entrar em contato
-                </a>
-              </Button>
-            </div>
-
-            <div
-              className="animate-enter flex flex-wrap items-center gap-2 pt-2"
-              style={{ animationDelay: '0.5s' }}
-            >
-              {mainStack.map((item) => (
-                <span
-                  key={item.label}
-                  className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 tech-chip ${item.tone}`}
-                >
-                  <TechIcon
-                    name={item.icon}
-                    label={item.label}
-                    className="h-4 w-4"
+              <Button size="lg" asChild>
+                <SectionLink to="projetos">
+                  Ver projetos
+                  <ArrowRight
+                    aria-hidden
+                    className="transition-transform duration-300 group-hover/button:translate-x-0.5"
                   />
-                  <span className="text-xs font-medium tech-label">
-                    {item.label}
-                  </span>
-                </span>
-              ))}
+                </SectionLink>
+              </Button>
+              <Button size="lg" variant="secondary" asChild>
+                <a href={profile.cv} download>
+                  <Download aria-hidden />
+                  Baixar currículo
+                  <span className="font-mono text-[0.68rem] text-ink-subtle">PDF</span>
+                </a>
+              </Button>
+            </div>
+
+            <div
+              className="animate-enter mt-5 flex max-w-full flex-wrap items-center gap-x-2 text-sm text-ink-subtle"
+              style={delay(300)}
+            >
+              <span>ou copie meu e-mail:</span>
+              <CopyEmail />
             </div>
           </div>
 
-          {/* Showcase animado */}
-          <div
-            className="animate-enter hidden lg:col-span-5 lg:block"
-            style={{ animationDelay: '0.35s' }}
-          >
-            <HeroOrbit />
+          <div className="animate-enter min-w-0" style={delay(220)}>
+            <ProfileCard />
           </div>
         </div>
 
-        {/* Métricas */}
-        <div
-          className="animate-enter mt-16 grid divide-y divide-[hsl(var(--tone-border))] overflow-hidden rounded-3xl border surface-card sm:grid-cols-3 sm:divide-x sm:divide-y-0"
-          style={{ animationDelay: '0.6s' }}
+        <dl
+          className="animate-enter mt-16 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:mt-20 sm:grid-cols-3"
+          style={delay(380)}
         >
           {metrics.map((item) => (
-            <div key={item.label} className="px-6 py-7 text-center sm:text-left">
-              <p className="font-heading text-4xl font-semibold text-tone">
+            <div
+              key={item.label}
+              className="flex flex-col-reverse gap-1 bg-surface/90 px-5 py-5 sm:px-6 sm:py-6"
+            >
+              <dt className="text-sm leading-snug text-ink-muted">{item.label}</dt>
+              <dd className="text-4xl font-semibold tracking-[-0.04em] text-ink sm:text-[2.6rem]">
                 {item.value}
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-tone-subtle">
-                {item.label}
-              </p>
+              </dd>
             </div>
           ))}
-        </div>
-
-        <div className="mt-14 flex justify-center">
-          <a
-            href="#sobre"
-            aria-label="Ir para a seção sobre"
-            className="flex h-11 w-11 items-center justify-center rounded-full border surface-muted text-tone-secondary transition hover:text-tone"
-          >
-            <ArrowDown className="h-5 w-5 animate-bounce" />
-          </a>
-        </div>
+        </dl>
       </Container>
     </section>
   );

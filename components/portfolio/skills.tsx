@@ -1,46 +1,46 @@
-import { Container } from '@/components/ui/container';
 import { Tag } from '@/components/ui/tag';
-import { SectionHeading } from '@/components/portfolio/section-heading';
+import { Accent, Section } from '@/components/portfolio/section';
 import { TechMarquee } from '@/components/portfolio/tech-marquee';
 import { skills } from '@/lib/portfolio-data';
 
 export function Skills() {
   return (
-    <section id="habilidades" className="scroll-mt-24 pt-24">
-      <Container>
-        <SectionHeading
-          index="04"
-          eyebrow="habilidades"
-          title="Tecnologias que uso no dia a dia"
-        />
+    <Section
+      id="stack"
+      index="04"
+      eyebrow="Stack"
+      title={
+        <>
+          Ferramentas que uso <Accent>no dia a dia</Accent>.
+        </>
+      }
+      description="Escolho a ferramenta pelo problema, mas é aqui que me sinto em casa."
+    >
+      <TechMarquee className="reveal" />
 
-        <TechMarquee className="mt-12" />
-
-        <div className="reveal mt-12 grid gap-6 md:grid-cols-3">
-          {skills.map((skill, i) => (
-            <div
-              key={skill.title}
-              className="card-lift rounded-3xl border surface-card p-6"
-            >
-              <div className="flex items-center gap-3">
-                <span className="section-index text-xs font-medium">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="text-xs uppercase tracking-[0.2em] text-tone-subtle">
-                  {skill.title}
-                </p>
-              </div>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <Tag key={item} tone="neutral" variant="soft">
-                    {item}
-                  </Tag>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
+      <div className="mt-10 grid gap-4 md:grid-cols-3">
+        {skills.map((group, index) => (
+          <article
+            key={group.title}
+            className="spotlight reveal flex flex-col rounded-[var(--radius)] border border-line bg-surface/70 p-6"
+          >
+            <p className="font-mono text-xs text-brand">
+              {String(index + 1).padStart(2, '0')}
+            </p>
+            <h3 className="mt-4 text-lg font-semibold tracking-[-0.01em] text-ink">
+              {group.title}
+            </h3>
+            <p className="mt-1 text-sm text-ink-muted">{group.description}</p>
+            <ul className="mt-5 flex flex-wrap gap-1.5">
+              {group.items.map((item) => (
+                <li key={item}>
+                  <Tag>{item}</Tag>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </Section>
   );
 }

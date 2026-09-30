@@ -1,75 +1,57 @@
-import { Check, Mail, MapPin, Phone } from 'lucide-react';
-import { Container } from '@/components/ui/container';
-import { SectionHeading } from '@/components/portfolio/section-heading';
-import { contact, highlights, profile } from '@/lib/portfolio-data';
-
-const contactItems = [
-  { icon: MapPin, value: contact.address },
-  { icon: Phone, value: contact.phone },
-  { icon: Mail, value: contact.email },
-];
+import { Accent, Section } from '@/components/portfolio/section';
+import { principles, profile } from '@/lib/portfolio-data';
 
 export function About() {
+  const [stack, transition, academic] = profile.about;
+
   return (
-    <section id="sobre" className="scroll-mt-24 pt-24">
-      <Container>
-        <SectionHeading
-          index="01"
-          eyebrow="sobre mim"
-          title="Quem faz acontecer"
-        />
-
-        <div className="reveal mt-12 grid gap-10 lg:grid-cols-3">
-          <div className="space-y-5 lg:col-span-2">
-            {profile.about.map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 24)}
-                className="text-base leading-relaxed text-tone-secondary md:text-lg"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-
-          <aside className="flex flex-col gap-4">
-            <div className="rounded-3xl border surface-card p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-tone-subtle">
-                contato
-              </p>
-              <ul className="mt-4 space-y-3">
-                {contactItems.map(({ icon: Icon, value }) => (
-                  <li
-                    key={value}
-                    className="flex items-start gap-3 text-sm text-tone-secondary"
-                  >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border surface-muted text-[hsl(var(--tone-primary))]">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <span className="wrap-break-word">{value}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-3xl border surface-card p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-tone-subtle">
-                destaques
-              </p>
-              <ul className="mt-4 space-y-3">
-                {highlights.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-sm text-tone-secondary"
-                  >
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(var(--tone-primary))]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
+    <Section
+      id="sobre"
+      index="01"
+      eyebrow="Sobre"
+      title={
+        <>
+          Do <Accent>suporte</Accent> ao código.
+        </>
+      }
+    >
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="reveal flex flex-col gap-6 lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+          <p className="text-pretty text-xl leading-snug tracking-[-0.01em] text-ink sm:text-2xl">
+            {transition}
+          </p>
+          <p className="text-pretty leading-relaxed text-ink-muted">{stack}</p>
+          <p className="text-pretty leading-relaxed text-ink-muted">{academic}</p>
         </div>
-      </Container>
-    </section>
+
+        <div className="lg:col-span-7">
+          <p className="eyebrow reveal mb-4">Como eu trabalho</p>
+          <ol className="grid gap-3 sm:grid-cols-2">
+            {principles.map((item, index) => (
+              <li
+                key={item.title}
+                className="spotlight reveal group flex flex-col rounded-[var(--radius)] border border-line bg-surface/70 p-6 transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-line-strong"
+              >
+                <span className="flex items-center justify-between font-mono text-xs text-ink-subtle">
+                  <span className="text-brand">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    aria-hidden
+                    className="h-px w-8 bg-line-strong transition-[width,background-color] duration-500 group-hover:w-14 group-hover:bg-brand"
+                  />
+                </span>
+                <h3 className="mt-6 text-lg font-semibold tracking-[-0.01em] text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-pretty text-[0.94rem] leading-relaxed text-ink-muted">
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </Section>
   );
 }

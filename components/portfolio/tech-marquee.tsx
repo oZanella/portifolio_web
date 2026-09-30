@@ -1,63 +1,65 @@
-import { cn } from '@/lib/utils';
-import { techCarousel } from '@/lib/portfolio-data';
 import { TechIcon } from '@/components/portfolio/tech-icon';
+import { techCarousel } from '@/lib/portfolio-data';
+import { cn } from '@/lib/utils';
 
-function MarqueeRow({
-  reverse = false,
-  duration = '40s',
-}: {
-  reverse?: boolean;
-  duration?: string;
-}) {
-  // Duplicamos a lista; cada item carrega o próprio espaçamento (margin),
-  // então o deslocamento de -50% cai exatamente no início da 2ª cópia — ciclo sem emenda.
-  const items = [...techCarousel, ...techCarousel];
+type Item = (typeof techCarousel)[number];
 
+function Group({ items, hidden = false }: { items: readonly Item[]; hidden?: boolean }) {
   return (
-    <div
-      className="marquee-track"
-      style={
-        {
-          '--marquee-dur': duration,
-          animationDirection: reverse ? 'reverse' : 'normal',
-        } as React.CSSProperties
-      }
+    <ul
+      aria-hidden={hidden || undefined}
+      className="flex shrink-0 gap-3 pr-3 [@media(prefers-reduced-motion:reduce)]:flex-wrap [@media(prefers-reduced-motion:reduce)]:justify-center"
     >
-      {items.map((item, index) => (
-        <div
-          key={`${item.label}-${index}`}
-          className={cn(
-            'mr-4 flex shrink-0 items-center gap-3 rounded-2xl border px-4 py-2.5 tech-chip transition-colors duration-300 hover:border-tone-primary/40',
-            item.tone,
-          )}
+      {items.map((item) => (
+        <li
+          key={item.label}
+          className="flex h-12 shrink-0 items-center gap-2.5 rounded-full border border-line bg-surface/70 pl-2 pr-4 text-sm text-ink-muted transition-colors duration-300 hover:border-brand/40 hover:text-ink"
         >
-          <span
-            className={cn(
-              'flex h-9 w-9 items-center justify-center rounded-full border tech-icon',
-              item.tone,
-            )}
-          >
-            <TechIcon name={item.icon} label={item.label} className="h-4 w-4" />
+          <span className="flex size-8 items-center justify-center rounded-full bg-elevated">
+            <TechIcon name={item.icon} className="size-4" />
           </span>
-          <span className={cn('text-sm font-medium tech-label', item.tone)}>
-            {item.shorthand}
-          </span>
-        </div>
+          {item.label}
+        </li>
       ))}
+    </ul>
+  );
+}
+
+function Row({
+  items,
+  duration,
+  reverse = false,
+}: {
+  items: readonly Item[];
+  duration: string;
+  reverse?: boolean;
+}) {
+  // Duas cópias idênticas: ao deslocar -50% a segunda assume o lugar da
+  // primeira sem emenda. A cópia é invisível para leitores de tela.
+  return (
+    <div className="marquee overflow-hidden py-1">
+      <div
+        className="marquee-track"
+        style={
+          {
+            '--duration': duration,
+            '--direction': reverse ? 'reverse' : 'normal',
+          } as React.CSSProperties
+        }
+      >
+        <Group items={items} />
+        <Group items={items} hidden />
+      </div>
     </div>
   );
 }
 
 export function TechMarquee({ className }: { className?: string }) {
+  const half = Math.ceil(techCarousel.length / 2);
   return (
-    <div className={cn('space-y-4', className)}>
-      <p className="text-xs uppercase tracking-[0.3em] text-tone-subtle">
-        Linguagens e ferramentas
-      </p>
-      <div className="marquee-mask space-y-4 overflow-hidden py-1">
-        <MarqueeRow duration="46s" />
-        <MarqueeRow reverse duration="38s" />
-      </div>
+    <div className={cn('flex flex-col gap-3', className)}>
+      <Row items={techCarousel.slice(0, half)} duration="42s" />
+      <Row items={techCarousel.slice(half)} duration="36s" reverse />
     </div>
   );
 }
